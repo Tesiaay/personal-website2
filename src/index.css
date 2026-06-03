@@ -1,0 +1,63 @@
+:root {
+  --bg: #e7dfc2;
+  --ink: #4b271c;
+  --orange: #e15732;
+  --teal: #4fa7a7;
+  --olive: #aab35a;
+  --pink: #e7a7a9;
+  --yellow: #f6c431;
+  --paper: rgba(255, 248, 220, 0.52);
+  --font-display-cn: "DeyiHei", "YouSheBiaoTiHei", "Noto Sans SC", sans-serif;
+  --font-display-en: "Bungee", "Anton", "Impact", sans-serif;
+  --font-body: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(75, 39, 28, 0.1) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+#root {
+  min-height: 100svh;
+}
