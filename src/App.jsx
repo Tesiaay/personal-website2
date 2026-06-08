@@ -22,6 +22,16 @@ const projects = [
     href: '#website',
     link: '查看网站项目',
   },
+  {
+    number: '03',
+    date: '2026.06 · 项目负责人',
+    title: 'TP 术语翻译助手：服装供应链 RAG 应用',
+    description:
+      '把服装跟单中重复、易错的 TP 术语翻译，做成基于 Dify 的 RAG 知识库翻译工具，输出标准化的中英对照与关键信息提示。',
+    tags: ['Dify', 'RAG', '混合检索', 'Rerank'],
+    href: '#tp',
+    link: '查看 TP 项目',
+  },
 ]
 
 const abilities = [
@@ -101,6 +111,7 @@ function App() {
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#tiva">Tiva</a>
+          <a href="#tp">TP RAG</a>
           <a href="#website">Website</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
@@ -114,7 +125,7 @@ function App() {
               <p className="eyebrow">Hero Section</p>
               <h1 className="display-title">AI Product Manager</h1>
               <p className="lead">
-                从业务执行、需求转化到 AI 产品实践，正在用 Tiva 与个人作品集项目完成 AI 产品经理转型。
+                从业务执行、需求转化到 AI 产品实践，正在用 Tiva、TP 术语翻译助手与个人作品集项目完成 AI 产品经理转型。
               </p>
               <div className="hero-focus" aria-label="核心能力">
                 <div className="focus-card"><span>01</span>用户需求理解</div>
@@ -140,7 +151,7 @@ function App() {
         <section id="projects">
           <div className="section-inner">
             <p className="eyebrow">Project Index</p>
-            <h2>Two Core Projects</h2>
+            <h2>Three Core Projects</h2>
             <div className="project-grid">
               {projects.map((project) => (
                 <article className="card project-card" key={project.number}>
@@ -238,6 +249,69 @@ function App() {
               <span className="tag">Prompt Iteration</span>
               <span className="tag">Workflow Testing</span>
               <span className="tag">Stable Output</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="tp">
+          <div className="section-inner">
+            <p className="eyebrow">TP RAG Project</p>
+            <h2>TP 术语翻译助手</h2>
+            <p className="lead">
+              这个项目来自我做服装跟单时最真实的痛点：TP 技术文件里的专业术语翻译重复、易错、依赖个人经验。我把它做成一个基于 Dify 的 RAG 知识库翻译工具，让术语翻译标准化、可复用。
+            </p>
+            <div className="feature-grid">
+              <article className="node-card" data-mark="01">
+                <strong>知识库构建</strong>
+                <p>把服装专业术语整理为知识库，完成数据清洗与切分，作为检索翻译的标准来源。</p>
+              </article>
+              <article className="node-card" data-mark="02">
+                <strong>检索调优</strong>
+                <p>配置 text-embedding-v4 与 qwen3-rerank，用混合检索解决 BOM、DTM 等缩写召回不准的问题。</p>
+              </article>
+              <article className="node-card" data-mark="03">
+                <strong>结构化输出</strong>
+                <p>设计中文翻译 / 术语对照 / 关键信息提示三段式输出，约束货号与尺寸编码原样保留。</p>
+              </article>
+            </div>
+            <div className="workflow-rail">
+              <p className="rail-title">RAG Workflow</p>
+              <div className="rail-flow">
+                <article className="module-card">
+                  <strong>用户输入</strong>
+                  <p>接收一段需要翻译的 TP 技术文件文本。</p>
+                </article>
+                <article className="module-card">
+                  <strong>知识检索</strong>
+                  <p>从术语知识库中检索相关术语，经 Rerank 重排并过滤低相关结果。</p>
+                </article>
+                <article className="module-card">
+                  <strong>LLM 翻译</strong>
+                  <p>结合检索到的标准术语生成译文，避免乱翻与幻觉。</p>
+                </article>
+                <article className="module-card">
+                  <strong>结构化输出</strong>
+                  <p>输出中文翻译、术语对照与关键信息提示三段内容。</p>
+                </article>
+              </div>
+            </div>
+            <div className="compare-grid">
+              <article className="mini-panel">
+                <strong>调优前</strong>
+                <p>专业缩写召回不准，术语对照里会混入原文没出现的近义术语。</p>
+              </article>
+              <article className="mini-panel after">
+                <strong>调优后</strong>
+                <p>通过混合检索与 Score 阈值过滤干扰项，术语对照准确、只保留原文实际出现的术语。</p>
+              </article>
+            </div>
+            <div className="tag-row">
+              <span className="tag">Pain Point</span>
+              <span className="tag">Knowledge Base</span>
+              <span className="tag">Hybrid Retrieval</span>
+              <span className="tag">Rerank</span>
+              <span className="tag">Prompt Iteration</span>
+              <span className="tag">Structured Output</span>
             </div>
           </div>
         </section>
@@ -349,7 +423,7 @@ function App() {
               <div className="resume-panel">
                 <p className="eyebrow">Resume PDF</p>
                 <h3>一页 A4 HR 简历</h3>
-                <p className="muted">PDF 版本保留招聘场景最需要的信息：AI 产品定位、两个核心项目、可迁移能力和联系方式。</p>
+                <p className="muted">PDF 版本保留招聘场景最需要的信息：AI 产品定位、三个核心项目、可迁移能力和联系方式。</p>
                 <a className="btn" href={resumeUrl} download>Download Resume / 下载简历</a>
               </div>
               <p className="footer-note">AI Product Manager Candidate · Agent Workflow Builder · Nanjing / Shanghai</p>
