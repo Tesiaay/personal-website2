@@ -793,6 +793,21 @@ h3 {
   font-weight: 800;
 }
 
+.footer-icp {
+  display: inline-block;
+  margin-top: 10px;
+  color: rgba(75, 39, 28, 0.5);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.footer-icp:hover {
+  color: rgba(75, 39, 28, 0.72);
+  text-decoration: underline;
+}
+
 .contact-mascot {
   display: flex;
   justify-content: flex-end;

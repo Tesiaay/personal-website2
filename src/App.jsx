@@ -427,6 +427,14 @@ function App() {
                 <a className="btn" href={resumeUrl} download>Download Resume / 下载简历</a>
               </div>
               <p className="footer-note">AI Product Manager Candidate · Agent Workflow Builder · Nanjing / Shanghai</p>
+              <a
+                className="footer-icp"
+                href="https://beian.miit.gov.cn/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                苏ICP备2026037164号-1
+              </a>
             </div>
             <div>
               <div className="testimonial-grid" aria-label="推荐语">
