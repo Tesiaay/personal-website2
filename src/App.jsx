@@ -32,6 +32,16 @@ const projects = [
     href: '#tp',
     link: '查看 TP 项目',
   },
+  {
+    number: '04',
+    date: '2026.06 · 项目负责人',
+    title: '小红书内容分析插件：图文 / 视频识别工具',
+    description:
+      '把小红书图文与视频笔记一键转成结构化分析的浏览器插件，本地转写加 Dify 工作流，输出核心摘要、观点分析、建议与问答。',
+    tags: ['Chrome MV3', 'FastAPI', 'Whisper', 'Dify'],
+    href: '#xhs',
+    link: '查看小红书插件',
+  },
 ]
 
 const abilities = [
@@ -112,6 +122,7 @@ function App() {
           <a href="#about">About</a>
           <a href="#tiva">Tiva</a>
           <a href="#tp">TP RAG</a>
+          <a href="#xhs">小红书</a>
           <a href="#website">Website</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
@@ -151,7 +162,7 @@ function App() {
         <section id="projects">
           <div className="section-inner">
             <p className="eyebrow">Project Index</p>
-            <h2>Three Core Projects</h2>
+            <h2>Four Core Projects</h2>
             <div className="project-grid">
               {projects.map((project) => (
                 <article className="card project-card" key={project.number}>
@@ -311,6 +322,69 @@ function App() {
               <span className="tag">Hybrid Retrieval</span>
               <span className="tag">Rerank</span>
               <span className="tag">Prompt Iteration</span>
+              <span className="tag">Structured Output</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="xhs">
+          <div className="section-inner">
+            <p className="eyebrow">Xiaohongshu Plugin Project</p>
+            <h2>小红书内容分析插件</h2>
+            <p className="lead">
+              这个项目把刷小红书时“想快速看懂一篇笔记到底讲了什么”的需求，做成一个浏览器插件：图文笔记直接读取页面内容，视频笔记本地转写成文字，再交给 Dify 工作流输出结构化分析，让信息消化更高效、可复用。
+            </p>
+            <div className="feature-grid">
+              <article className="node-card" data-mark="01">
+                <strong>图文识别</strong>
+                <p>插件读取当前小红书笔记的标题与正文 DOM，调用本地 FastAPI 接口，把内容送入 Dify 分析。</p>
+              </article>
+              <article className="node-card" data-mark="02">
+                <strong>视频转写</strong>
+                <p>用 faster-whisper 在本地把视频笔记的语音转成文字，无需上传，保证速度与隐私。</p>
+              </article>
+              <article className="node-card" data-mark="03">
+                <strong>结构化分析</strong>
+                <p>Dify 工作流输出核心摘要、观点分析、行动建议与问答四段内容，并在插件内以 Markdown 渲染缓存。</p>
+              </article>
+            </div>
+            <div className="workflow-rail">
+              <p className="rail-title">Plugin Workflow</p>
+              <div className="rail-flow">
+                <article className="module-card">
+                  <strong>内容采集</strong>
+                  <p>Chrome MV3 插件读取图文 DOM，或对视频笔记进行音频采集。</p>
+                </article>
+                <article className="module-card">
+                  <strong>本地处理</strong>
+                  <p>本地 FastAPI 后端接收请求，视频经 faster-whisper 转写为文本。</p>
+                </article>
+                <article className="module-card">
+                  <strong>Dify 分析</strong>
+                  <p>文本送入已发布的“小红书内容分析”工作流，由模型生成结构化结果。</p>
+                </article>
+                <article className="module-card">
+                  <strong>结果渲染</strong>
+                  <p>插件以 Markdown 渲染四段分析并做本地缓存，便于回看与复用。</p>
+                </article>
+              </div>
+            </div>
+            <div className="compare-grid">
+              <article className="mini-panel">
+                <strong>插件之前</strong>
+                <p>看长图文或视频笔记需要逐条手动阅读，重点分散、难以快速判断是否值得收藏。</p>
+              </article>
+              <article className="mini-panel after">
+                <strong>插件之后</strong>
+                <p>一键得到摘要、观点、建议与问答，几秒钟看懂一篇笔记的核心价值。</p>
+              </article>
+            </div>
+            <div className="tag-row">
+              <span className="tag">Chrome MV3</span>
+              <span className="tag">FastAPI</span>
+              <span className="tag">faster-whisper</span>
+              <span className="tag">Dify Workflow</span>
+              <span className="tag">Local Inference</span>
               <span className="tag">Structured Output</span>
             </div>
           </div>
